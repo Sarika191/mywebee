@@ -1,11 +1,10 @@
-🚀 Sarika's Portfolio & Projects  
+🚀 Sarika's Portfolio & Projects 
 
-Welcome to my GitHub repository! This contains my personal website, projects, and fun games.  
-
+Welcome to my GitHub repository! This contains my personal website, projects, and fun games. 
 🌐 About Me  
 A tech enthusiast passionate about problem-solving, web design, and interactive projects.  
-
  📌 Projects  
+ (Includes HTML,CSS AND Javascript
 - Personal Website – A dynamic, interactive portfolio with animations and responsive design.  
 - Flexer – A shopping website with categories like Clothes and Food(🛒 Work in progress).  
 - Food Website – A fun project showcasing different cuisines (🍔 Under development).  
