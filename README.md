@@ -4,7 +4,7 @@ Welcome to my GitHub repository! This contains my personal website, projects, an
 🌐 About Me  
 A tech enthusiast passionate about problem-solving, web design, and interactive projects.  
  📌 Projects  
- (Includes HTML,CSS AND Javascript
+ (Includes HTML,CSS AND Javascript)
 - Personal Website – A dynamic, interactive portfolio with animations and responsive design.  
 - Flexer – A shopping website with categories like Clothes and Food(🛒 Work in progress).  
 - Food Website – A fun project showcasing different cuisines (🍔 Under development).  
