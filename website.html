@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web SITE 🤖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=home_app_logo" />
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-image: url('https://images.wallpaperscraft.com/image/single/laptop_keyboard_glow_181211_3840x2160.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+         .logo-container {
+        position: fixed; /* Centered within the viewport */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo {
+        position: relative; /* To contain the pseudo-element */
+        width: 60px; /* Smaller size for the logo */
+        height: 60px;
+        border-radius: 50%; /* Circular shape */
+        background: linear-gradient(32deg, #ff416c, #ff4b2b);
+        animation: rotate 3s linear infinite;
+    }
+
+    .logo::before {
+        content: '';
+        position: absolute;
+        top: 50%; /* Center within the logo */
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px; /* Smaller size for the inner circle */
+        height: 50px;
+        border-radius: 50%; /* Circular shape */
+        background-color: #000; /* Black inner circle */
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.1);
+            opacity: 0.8;
+        }
+    }
+               .navbar {
+            font-family: 'Lobster', cursive;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            padding: 10px 0;
+            ;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color:white ;
+            text-align: center;
+            padding: 8px 12px;
+            margin: 0 5px;
+            text-decoration: none ;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #c75237;
+            color: white;
+        }
+
+        #content {
+            padding: 20px;
+            font-size: 16px;
+            opacity: 0;
+            animation: fadeIn 3s forwards, slideUp 1.5s forwards;
+            animation-delay: 0.5s;
+            max-width: 1490px;
+            text-align: justify;
+            line-height: 1.5;
+            margin-top: 60px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+#coontent {
+            padding: 10px;
+            font-size: 16px;
+            opacity: 0;
+            animation: fadeIn 3s forwards, slideUp 1.5s forwards;
+            animation-delay: 0.5s;
+            line-height: 1.5;
+            margin-top: 0px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(25px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+ .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .loading-text {
+           font-family: 'Lobster', cursive;
+            margin-top: 20px;
+            font-size: 0.9em;
+          transform: translate(-50%, -50%);
+        width: 24.155px; 
+        height: 120px;
+            text-align: center;
+            color: #ff4b2b;
+        }
+.hidden-tab {
+            display: none; /* Initially hidden */
+            padding: 20px;
+            margin-top: 20px;
+            background: #ff416c;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .hidden-tab.active {
+            display: block; /* Show when active */
+        }
+
+
+  button {
+      background-color:#E75480 ; /* Green background */
+      border: none;             /* Remove borders */
+      color: pink;             /* White text */
+      padding: 12px 20px;       /* Add padding */
+      text-align: center;       /* Center text */
+      text-decoration: none;    /* Remove underline */
+      display: inline-block;
+      font-family: 'Lobster', cursive;    /* Inline-block for layout */
+      font-size: 16px;          /* Font size */
+      margin: 4px 2px;          /* Margin around button */
+      cursor: pointer;          /* Pointer cursor on hover */
+      border-radius: 8px;       /* Rounded corners */
+      transition: background-color 0.3s ease; /* Smooth hover effect */
+    }
+
+    button:hover {
+      background-color:  #008ac3; /* Darker green on hover */
+    }
+const style = document.createElement('style');
+style.innerHTML = `
+    .zoom-image-container {
+        position: relative;
+        overflow: hidden;
+        height: 145px; /* Adjust as needed */
+        margin-top: 30px;
+    }
+
+    .zoom-image {
+        width: 40%;
+        height: 30%;
+        object-fit: cover;
+        transition: transform 1s ease;
+    }
+
+    .zoom-image-container:hover .zoom-image {
+        transform: scale(1.05); /* Slight zoom on hover */
+    }
+
+    /* Zoom-out effect on scrolling */
+    .zoom-image {
+        transform: scale(1);
+    }
+
+    @keyframes scrollZoomOut {
+        from {
+            transform: scale(1.05);
+        }
+        to {
+            transform: scale(1);
+        }
+    }
+`;
+document.head.appendChild(style);
+const style = document.createElement('style');
+style.innerHTML = `
+    .zoom-imaage-container {
+        position: relative;
+        overflow: hidden;
+        height: 100px; /* Adjust as needed */
+        margin-top: 30px;
+    }
+
+    .zoom-imaage {
+        width: 10%;
+        height: 10%;
+        object-fit: cover;
+        transition: transform 1s ease;
+    }
+
+    .zoom-imaage-container:hover .zoom-image {
+        transform: scale(1.05); /* Slight zoom on hover */
+    }
+
+    /* Zoom-out effect on scrolling */
+    .zoom-imaage {
+        transform: scale(1);
+    }
+
+    @keyframes scrollZoomOut {
+        from {
+            transform: scale(1.05);
+        }
+        to {
+            transform: scale(1);
+        }
+    }
+`;
+document.head.appendChild(style);
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="logo"></div>
+        <div class="loading-text">Loading</div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#" class="active" onclick="goHome()"><span class="material-symbols-outlined">
+home_app_logo
+</span></a>
+        <a href="#" class="changePage" onclick="changePage(event, 'About Us')">About Us</a>
+        <a href="#" class="changePage" onclick="changePage(event, 'Websites')">Websites</a>
+        <a href="#" class="changePage" onclick="changePage(event, 'Help')">Help</a>
+        <a href="#" class="changePage" onclick="changePage(event, 'Contacts')">Contacts</a>
+    </div>
+
+    <!-- Content -->
+    <div id="content" >
+        <h1>Welcome to Cleo, Your AI Buddy!</h1>
+        <p>Meet Cleo, your friendly and cute AI companion designed to make your everyday life easier...<br>Coming soon...</p>
+ <div class="zoom-imaage-container">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExODN1MWt2eTFnbmtseWwxajY3dmgwYzNvaWF6Z25pYjh4NHFvOHpleiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/UQ1EI1ML2ABQdbebup/giphy.gif"alt="About Sarika" class="zoom-imaage">
+        </div>
+    </div>
+
+    <script>
+        // Show loading screen for 4 seconds on home page load
+        window.onload = function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 1300);
+        };
+
+        // Change page with 2-second loading screen
+        function changePage(event, page) {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const content = document.getElementById('content');
+            const links = document.querySelectorAll('.navbar a');
+            links.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Show loading screen
+            loadingScreen.style.display = 'flex';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+  
+                if (page === 'About Us') {
+                 content.innerHTML=`
+<div id="coontent">
+   <h1>Hola, mi Amigos</h1>
+                        <p>
+ Us here is me, Hy,My name is Sarika Kaushal and This is my website there are mutiple interesting things in here! 🌟<br>
+I'm a tech enthusiast with a passion for problem-solving and creating practical projects.<br> I'm currently pursuing an engineering degree in Computer Science and Engineering (CSE) with a focus on the Internet of Things (IoT), also interested in AI/ML. 💻✨<br> I love experimenting with coding in C++, Java, and Python, and I enjoy building fun, silly games alongside more serious applications. 🎮🤓
+
+<br> I’m a proud member of the Google Developer Group (GDG) in college, where I’ve helped organize hackathons, project exhibitions, and orientations,<br> as well as conducted interviews for junior recruitment. 🌐🚀 <br> Outside of tech, I’ve participated in Model United Nations (MUN) in school, practiced content writing, and even earned awards from UNESCO for painting. 🎨🏅 <br> When I’m not coding, you’ll probably find me immersed in anime or manga, exploring creative stories that fuel my imagination. 🌸📚 <br>With a drive to learn and a heart for innovation, I aim to make a meaningful impact in both my personal and professional journey. 💡❤️</p>
+                 
+            <img src="https://i.pinimg.com/originals/e6/7f/15/e67f1555266af86770039d57d783594d.gif"alt="About Sarika" width=25% >
+<p>Coding Platform's My Profile<br>
+<button onclick="window.open('https://leetcode.com/u/sarika99770','_target');">Leetcode</button>
+<button onclick="window.open('https://www.codechef.com/users/sarika69','_target');">Code Chef</button><br>
+<h2>Let's move to further</h2>
+So i have created some fun games as my project. You can find the link to my git. Go to websites tab for links🐈</p>
+<h3>Apart from this, I like <b><i>FOOD</i></b></h3>
+<img src="https://i.pinimg.com/originals/32/e7/71/32e7718d84a4de00488051fd833df180.gif"alt="About Sarika" width=20% >
+<p><b>Do you like food?</b></p>
+
+ <img src="https://i.pinimg.com/originals/61/4b/b4/614bb4d7982f87558039fc55fb223ef5.gif"alt="About Sarika" width=20% ><br>
+<button onclick ="window.open('https://i.pinimg.com/originals/60/4d/15/604d15c1807e206a05990b48499bda3d.gif','_blank');">YES😋</button>
+
+<button onclick= "window.open('https://i.pinimg.com/originals/6a/a1/8b/6aa18bf4a33f69ff1ca619ceb56865b7.gif ','_blank');">Nah🙄</button><br>
+<h3>Do you like animations movies?</h3>
+<p>Let's see which animation character is your year<br> Wanna know ?</p>
+<button onclick="toggleTab()">Yes🤩</button>
+<button onclick="window.open('https://i.pinimg.com/originals/01/73/40/0173407981c013a5e2085f7adcd42bfb.gif','_blank');">Nah🙄</a></button>
+   <div id="hiddenTab" class="hidden-tab">
+<p>Let's go..............</p><br>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+ JAN <img src="https://i.pinimg.com/originals/54/19/c9/5419c9ce3ffade43b2837daa2c96b1d9.gif" width="25%" height="30%">FEB
+  <img src="https://i.pinimg.com/originals/0f/45/8f/0f458fbe0bb6ce64acec0c86e9912dcd.gif" width="23%" height="25%">MAR
+  <img src="https://i.pinimg.com/originals/3a/c1/36/3ac13635a4d43e5f275611a31b8514ed.gif" width="25%" height="25%">
+  <img src="https://i.pinimg.com/originals/38/02/be/3802be2a41dc23023d5dd9e325d7f10b.gif" width="20%" height="20%">APRIL
+  <img src="https://i.pinimg.com/originals/c5/97/ef/c597efef2c9ec5d42da28aa468a9f758.gif" width="30%" height="36%">MAY
+  <img src="https://i.pinimg.com/originals/aa/d0/b4/aad0b4e3a96af241db0ff760ff021870.gif" width="28%" height="30%">JUNE
+  <img src="https://i.pinimg.com/originals/04/e2/dc/04e2dca52a20bd4dc52c6c4ffcb8383a.gif" width="26%" height="26%">JULY
+  <img src="https://i.pinimg.com/originals/49/be/7f/49be7f6116ddb6c62b3f26c93b629ab7.gif" width="27%" height="27%">AUG
+  <img src="https://i.pinimg.com/originals/03/d5/68/03d56835e882062abbf78c194870f932.gif" width="27%" height="27%">SEP
+  <img src="https://i.pinimg.com/originals/10/40/3f/10403f33b23976b0cb0de372c5df9a0f.gif" width="25%" height="30%">OCT
+  <img src="https://i.pinimg.com/originals/f6/ff/8e/f6ff8e412e78335a9d32c516cc307d00.gif" width="30%" height="30%">NOV
+  <img src="https://i.pinimg.com/originals/9e/2e/4f/9e2e4f869b666c30b5286c1b3d59d0da.gif" width="39%" height="37%">DEC
+</div>
+<br>
+<h1>I hope you enjoy it. For other information you can visit other tabs. Thank You🐈</h1>
+        <button onclick="toggleTab()">Close</button>
+    </div>
+   </div>
+`;
+ } else if (page === 'Websites') {
+                    content.innerHTML = `<div id="coontent"><h1>Explore our projects and services</h1><p>Click the below link to visit my other website"Flexer" 🤖...</p>
+<button onclick ="window.open('https://rawcdn.githack.com/Sarika191/mywebee/707ea2867f39f688e0602b9f8132c1c3634f520b/flexer.html','_blank');">Flexer</button>
+<p>Game project: Tic Tac Toe</p>
+<button onclick ="window.open('https://github.com/Sarika191/Cross-O-Cuties' ,'_blank');">Cross-O-Cuties</button>
+<p>Game project: Word Scramble Game</p>
+<button onclick ="window.open('https://github.com/Sarika191/ScrambleMania','_blank');">Scramble Mania</button>
+</div>`
+;
+                } else if (page === 'Help') {
+                    content.innerHTML = '<div id="coontent"><h1>Help</h1><p>Find answers to your questions...<br>Do contact us or email us.✉️</p><h3><i>Here, Help is both way either you "Get Help" or "Help us".<br> For both, We are open✨<br>Join Today🤩</i></h3></div>';
+                } else if (page === 'Contacts') {
+                    content.innerHTML = `
+                        <h1>Contact: </h1>
+                        <p>Name: Sarika Kaushal<br>For contact📞: 6306508558<br>Email  📩 :sarika99770gmail.com<br>
+<button onclick="window.open('https://www.linkedin.com/in/sarika-kaushal-192a92283','_target');">Linked In</button><br>
+
+
+
+</p>
+                    `;
+                }
+            }, 500);
+        }
+
+        function goHome() {
+            const content = document.getElementById('content');
+            content.innerHTML = `<div id="coontent">
+                <h1>Welcome to Cleo, Your AI Buddy!</h1>
+                <p>Meet Cleo, your friendly and cute AI companion...<br>This is just a example i am interested in AI/ML so soon.. will be presenting one.<br><i>THANK YOU</i>
+</p>
+<div class="zoom-imaage-container">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExODN1MWt2eTFnbmtseWwxajY3dmgwYzNvaWF6Z25pYjh4NHFvOHpleiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/UQ1EI1ML2ABQdbebup/giphy.gif"alt="About Sarika" class="zoom-imaage">
+        </div>
+    </div>
+</div>
+            `;
+        }
+function toggleTab() {
+            var tab = document.getElementById("hiddenTab");
+            tab.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
