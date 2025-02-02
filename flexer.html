@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexer😎</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=home_app_logo" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Macondo&family=Playwrite+IN:wght@100..400&family=Playwrite+VN:wght@100..400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+             background-image: url('https://images.wallpaperscraft.com/image/single/orange_ice_mint_139564_1920x1080.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            color: black;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+         .logo-container {
+        position: fixed; /* Centered within the viewport */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo {
+        position: relative; /* To contain the pseudo-element */
+        width: 60px; /* Smaller size for the logo */
+        height: 60px;
+        border-radius: 50%; /* Circular shape */
+        background: linear-gradient(32deg, #0a89b7, #ef8e0a);
+        animation: rotate 3s linear infinite;
+    }
+
+    .logo::before {
+        content: '';
+        position: absolute;
+        top: 50%; /* Center within the logo */
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px; /* Smaller size for the inner circle */
+        height: 50px;
+        border-radius: 50%; /* Circular shape */
+        background-color: #000; /* Black inner circle */
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.1);
+            opacity: 0.8;
+        }
+    }
+               .navbar {
+            font-family: 'Lobster', cursive;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            padding: 10px 0;
+            ;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color:white ;
+            text-align: center;
+            padding: 8px 12px;
+            margin: 0 5px;
+            text-decoration: none ;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #52bce2;
+            color: white;
+        }
+
+        #content {
+            padding: 20px;
+            font-size: 16px;
+            opacity: 0;
+            animation: fadeIn 3s forwards, slideUp 2s forwards;
+            animation-delay: 0.5s;
+            max-width: 1555px;
+            text-align: justify;
+            line-height: 1.5;
+            margin-top: 60px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+ .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .loading-text {
+           font-family: 'Lobster', cursive;
+            margin-top: 20px;
+            font-size: 0.9em;
+          transform: translate(-50%, -50%);
+        width: 24.155px; 
+        height: 120px;
+            text-align: center;
+            color: #ff4b2b;
+        }
+const style = document.createElement('style');
+style.innerHTML = `
+    .zoom-image-container {
+        position: relative;
+        overflow: hidden;
+        height: 145px; /* Adjust as needed */
+        margin-top: 30px;
+    }
+
+    .zoom-image {
+        width: 40%;
+        height: 30%;
+        object-fit: cover;
+        transition: transform 1s ease;
+    }
+
+    .zoom-image-container:hover .zoom-image {
+        transform: scale(1.05); /* Slight zoom on hover */
+    }
+
+    /* Zoom-out effect on scrolling */
+    .zoom-image {
+        transform: scale(1);
+    }
+
+    @keyframes scrollZoomOut {
+        from {
+            transform: scale(1.05);
+        }
+        to {
+            transform: scale(1);
+        }
+    }
+`;
+`
+    .zoom-imaage-container {
+        position: relative;
+        overflow: hidden;
+        height: 100px; /* Adjust as needed */
+        margin-top: 30px;
+    }
+
+    .zoom-imaage {
+        width: 30%;
+        height: 20%;
+        object-fit: cover;
+        transition: transform 3s ease;
+    }
+
+    .zoom-imaage-container:hover .zoom-image {
+        transform: scale(1.05); /* Slight zoom on hover */
+    }
+
+    /* Zoom-out effect on scrolling */
+    .zoom-imaage {
+        transform: scale(1);
+    }
+
+    @keyframes scrollZoomOut {
+        from {
+            transform: scale(1.05);
+        }
+        to {
+            transform: scale(1);
+        }
+    }
+`;
+document.head.appendChild(style);
+.imaige-container {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between; /* Ensure proper spacing */
+              margin-top: 20px;
+              gap: 15px; /* Add gap between items */
+        }
+
+        .imaige-item {
+           flex: 1 1 calc(25% - 15px); /* Make each item take 25% width minus the gap */
+           box-sizing: border-box; /* Include padding and border in width calculation */
+           text-align: center;
+           max-width: 150px; /* Optional: Limit the width of items */
+        }
+
+        .imaige-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .add-to-cart {
+            background-color: #866254;
+            color: pink;
+            padding: 8px 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+             font-family: "Macondo", serif;
+            font-weight: bold;
+        }
+
+        .add-to-cart:hover {
+            background-color: black;
+        }
+
+        .quantity {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .quantity button {
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #866254;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+
+        .cart-summary {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #cart-items {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        #cart-items li {
+            font-size: 10px;
+            font-family: "Macondo", serif;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="logo"></div>
+        <div class="loading-text">Loading</div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#" class="active" onclick="goHome()"><span class="material-symbols-outlined">
+home_app_logo
+</span></a>
+        <a href="#" class="changePage" onclick="changePage(event, 'Clothes')">Clothes</a>
+        <a href="#" class="changePage" onclick="changePage(event, 'Food')">Food</a>
+        <a href="#" class="changePage" onclick="changePage(event, 'Contact and Help')">Contact and Help</a>
+    </div>
+
+    <!-- Content -->
+    <div id="content">
+        <h1>Welcome To Flexer</h1>
+        <p><i>Hello & Welcome to<b> Flexer</b>😎 for cheap and fasionable shopping<br>Flex yourself with style, we give😉<br>Not only Flex your clothes but do flex your taste<br> Try our Flexer food and get your craving filled😋</></p>
+
+
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2dsa3libzFrdnoyNWtnYWJsbnFkdXc3ZXZ4dnhybXlvYmw4OGM4eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/B6odR0DhsStfW/giphy.gif"alt="About Sarika" width=30% height=35%>
+        
+    </div>
+
+    <script>
+        // Show loading screen for 4 seconds on home page load
+        window.onload = function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 1300);
+        };
+
+        // Change page with 2-second loading screen
+        function changePage(event, page) {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const content = document.getElementById('content');
+            const links = document.querySelectorAll('.navbar a');
+            links.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Show loading screen
+            loadingScreen.style.display = 'flex';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                if (page === 'Clothes') {
+                    content.innerHTML = `
+                       
+                      
+            <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%; box-shadow: none; margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
+    src="https://www.canva.com/design/DAGcjHRvJMg/-ylUF6rwiMGAj6GsTc7fSA/view?embed&controls=0" >
+  </iframe>
+</div>
+<a href="https://www.canva.com/design/DAGcjHRvJMg/-ylUF6rwiMGAj6GsTc7fSA/view?utm_content=DAGcjHRvJMg&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">FLEXER</a> by Sarika Kaushal
+  <div class="image-container">
+        <div class="imaige-item" id="shop1">
+            <img src="https://raw.githubusercontent.com/Sarika191/Myweb/refs/heads/main/top2.webp?token=GHSAT0AAAAAAC5RGQRKXKN7NJVTQJLPDUSWZ47PBJA"  alt="Shop Item 1">
+            <div class="quantity">
+                <button onclick="changeQuantity('shop1', 'decrease')">-</button>
+                <span id="quantity-shop1">0</span>
+                <button onclick="changeQuantity('shop1', 'increase')">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('shop1')">Add to Cart</button>
+        </div>
+
+        <div class="imaige-item" id="shop2">
+            <img src="https://raw.githubusercontent.com/Sarika191/Myweb/refs/heads/main/top2.webp?token=GHSAT0AAAAAAC5RGQRKXKN7NJVTQJLPDUSWZ47PBJA"  alt="Shop Item 2">
+            <div class="quantity">
+                <button onclick="changeQuantity('shop2', 'decrease')">-</button>
+                <span id="quantity-shop2">0</span>
+                <button onclick="changeQuantity('shop2', 'increase')">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('shop2')">Add to Cart</button>
+        </div>
+
+        <div class="imaige-item" id="shop3">
+            <img src="https://raw.githubusercontent.com/Sarika191/Myweb/refs/heads/main/top2.webp?token=GHSAT0AAAAAAC5RGQRKXKN7NJVTQJLPDUSWZ47PBJA" alt="Shop Item 3">
+            <div class="quantity">
+                <button onclick="changeQuantity('shop3', 'decrease')">-</button>
+                <span id="quantity-shop3">0</span>
+                <button onclick="changeQuantity('shop3', 'increase')">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('shop3')">Add to Cart</button>
+        </div>
+
+        <div class="imaige-item" id="shop4">
+            <img src="https://raw.githubusercontent.com/Sarika191/Myweb/refs/heads/main/top2.webp?token=GHSAT0AAAAAAC5RGQRKXKN7NJVTQJLPDUSWZ47PBJA"  alt="Shop Item 4">
+            <div class="quantity">
+                <button onclick="changeQuantity('shop4', 'decrease')">-</button>
+                <span id="quantity-shop4">0</span>
+                <button onclick="changeQuantity('shop4', 'increase')">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('shop4')">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="cart-summary" id="cart-summary">
+        <h3>Cart Summary:</h3>
+        <ul id="cart-items"></ul>
+    </div>
+
+
+
+   `;
+
+                }
+else if (page === 'Food') {
+    content.innerHTML = `
+        <h1>Food</h1>
+        <p>Explore your taste and cravings with mouth-watering food 😋...</p>
+      <video width="360" height="600" controls>
+    <source src="https://v1.pinimg.com/videos/iht/720p/ce/2d/50/ce2d5058d42edcdcb5cfea64e5457473.mp4" type="video/mp4">
+    <source >
+    Your browser does not support the video tag.
+</video>
+ <video width="360" height="600" controls>
+    <source src="https://v1.pinimg.com/videos/mc/720p/29/1b/3d/291b3d3a3b01b8a4266b32136fa4737f.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+ <video width="360" height="600" controls>
+    <source src="https://v1.pinimg.com/videos/iht/720p/80/91/c8/8091c8282c58bcd14dd0913569e37bab.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+
+    `;
+} 
+ else if (page === 'Contact and Help') {
+                    content.innerHTML = `
+                        <h1>Contact and Help</h1>
+                        <p>My name is Sarika Kaushal<br>For contact📞: 6306508669</p>
+                    `;
+                }
+            }, 500);
+        }
+
+
+        function goHome() {
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <h1>Welcome To Flexer</h1>
+        <p>Hello & Welcome to Flexer😎 for cheap and fasionable shopping<br>Flex yourself with style, we give😉<br><i>This is a dummy website for shopping for your favorite items🤗.<br>THANK YOU</i>
+</p>
+
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExODN1MWt2eTFnbmtseWwxajY3dmgwYzNvaWF6Z25pYjh4NHFvOHpleiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/UQ1EI1ML2ABQdbebup/giphy.gif"alt="About Sarika" width=10% height=20%>
+  
+    </div>
+            `;
+        }
+let cart = {};
+
+        function changeQuantity(itemId, action) {
+            let quantityElement = document.getElementById(`quantity-${itemId}`);
+            let currentQuantity = parseInt(quantityElement.textContent);
+
+            if (action === 'increase' && currentQuantity < 3) {
+                quantityElement.textContent = currentQuantity + 1;
+            } else if (action === 'decrease' && currentQuantity > 0) {
+                quantityElement.textContent = currentQuantity - 1;
+            }
+        }
+
+        function addToCart(itemId) {
+            let quantity = parseInt(document.getElementById(`quantity-${itemId}`).textContent);
+            if (quantity > 0) {
+                if (!cart[itemId]) {
+                    cart[itemId] = quantity;
+                } else {
+                    cart[itemId] += quantity;
+                }
+                updateCartSummary();
+            }
+        }
+
+        function updateCartSummary() {
+            let cartItemsList = document.getElementById("cart-items");
+            cartItemsList.innerHTML = '';
+
+            for (let item in cart) {
+                let li = document.createElement("li");
+                li.textContent = `Item ${item.replace('shop', '')}: Quantity ${cart[item]}`;
+                cartItemsList.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>
